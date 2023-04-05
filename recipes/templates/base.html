@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--font-awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--CSS-->
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>
+        {% block title %}
+        
+        {% endblock title %}
+    </title>
+</head>
+<body>
+    <!--HEADER-->
+    <header class="main-header-container">
+        <div class="main-header container">   
+            <h1>
+                <a href="{% url 'index' %}">
+                    <i class="fa-sharp fa-solid fa-utensils"></i>
+                    <span>Recipes</span>
+                </a>
+            </h1>
+        </div>
+    </header>
+    <!--END HEADER-->
+
+    {% block content %}
+    
+    {% endblock content %}
+
+    <!--FOOTER-->
+    
+    <!--END FOOTER-->
+
+    
+
+</body>
+</html>
