@@ -24,9 +24,9 @@
     <header class="main-header-container">
         <div class="main-header container">   
             <h1>
-                <a href="{% url 'index' %}">
+                <a class="main-logo" href="{% url 'index' %}">
                     <i class="fa-sharp fa-solid fa-utensils"></i>
-                    <span>Recipes</span>
+                    <span class="main-logo-text">Recipes</span>
                 </a>
             </h1>
         </div>
@@ -38,6 +38,15 @@
     {% endblock content %}
 
     <!--FOOTER-->
+    <footer class="main-footer">
+        <div class="developer">
+          <a href="" target="_blank" rel="noreferrer noopener">By Pedrão</a>
+        </div>
+      
+        <div class="powered">
+          <a href="" target="_blank" rel="noreferrer noopener">Powered by Django</a>
+        </div>
+      </footer>
     
     <!--END FOOTER-->
 

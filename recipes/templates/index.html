@@ -5,5 +5,19 @@
 {% endblock title %}
 
 {% block content %}
-    <h2>Aqui vem o conteudo</h2>
+    
+    {% include "search.html" %}
+
+    <main class="main-content-container">
+        <div class="main-content main-content-list container">
+            {% include "card.html" %} 
+          
+        </div>
+    </main>
+
+   
+    
+      
+      
+
 {% endblock content %}
