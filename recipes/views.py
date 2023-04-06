@@ -12,4 +12,4 @@ def index(request):
 
 
 def recipes(request, id):
-    return render(request, 'recipes.html')
+    return render(request, 'recipes.html', context={'recipe': make_recipe()})

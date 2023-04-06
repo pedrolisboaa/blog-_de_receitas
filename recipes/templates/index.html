@@ -10,12 +10,14 @@
 
     <main class="main-content-container">
         <div class="main-content main-content-list container">
-            {% include "card.html" %} 
-            {% include "card.html" %} 
-            {% include "card.html" %} 
-            {% include "card.html" %} 
-            {% include "card.html" %} 
-            {% include "card.html" %} 
+
+            {% for recipe in recipes %}
+
+                {% include "card.html" %}  
+                
+            {% endfor %}
+            
+          
         </div>
     </main>
 
