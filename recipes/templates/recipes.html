@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    RECIPES
+{% endblock title %}
+
+{% block content %}
+    
+    {% include "search.html" %}
+
+    <main class="main-content-container">
+        <div class="main-content main-content-detail container">
+            {% include "card.html" %} 
+        </div>
+    </main>
+
+{% endblock content %}
