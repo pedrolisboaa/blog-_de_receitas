@@ -13,8 +13,13 @@
 
             {% for recipe in recipes %}
 
-                {% include "card.html" %}  
-                
+                {% include "card.html" %}
+            {% empty %}
+
+                <div class="center">
+                    <h1>Não possuímos receitas!</h1> 
+                </div>
+                 
             {% endfor %}
             
           

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_list_or_404
+from django.shortcuts import render, get_list_or_404, get_object_or_404
 from utils.factory import make_recipe
 from .models import Recipe
 
@@ -7,12 +7,10 @@ from .models import Recipe
 # Create your views here.
 
 def index(request):
-    
     recipes = Recipe.objects.filter(
-       is_published=True
-       ).order_by('-id')
-    
-    
+        is_published=True,
+    ).order_by('-id')
+
     return render(request, 'index.html', context={'recipes': recipes} )
 
 
@@ -27,10 +25,7 @@ def category(request, category_id):
 
 
 def recipes(request, id):
-    recipe = Recipe.objects.filter(
-        pk=id,
-        is_published=True,
-    ).order_by('-id').first()
+    recipe = get_object_or_404(Recipe, pk=id, is_published=True)
 
     return render(request, 'recipes.html', context={
         'recipe':recipe,
