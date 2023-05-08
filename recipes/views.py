@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404
+from django.http import Http404
 from .models import Recipe
-
+from django.db.models import Q
 
 # Create your views here.
 
@@ -30,6 +31,22 @@ def recipes(request, id):
 
 
 def search(request):
-    search_term = request.GET.get('q')
+    search_term = request.GET.get('q', '').strip()
 
-    return render(request, 'searchpage.html')
+    if not search_term:
+        raise Http404()
+    recipes = Recipe.objects.filter(
+        Q(
+            Q(title__icontains=search_term) |
+            Q(description__icontains=search_term),
+        ),
+        is_published=True
+    ).order_by('-id')
+
+    recipes = recipes.filter(is_published=True)
+
+    return render(request, 'searchpage.html', {
+        'page_title': f'Pesquisar por "{search_term} |"',
+        'search_term': search_term,
+        'recipes': recipes,
+    })
